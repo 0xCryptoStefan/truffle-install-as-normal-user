@@ -1,5 +1,5 @@
-# Recommended way to install truffle on a Linux System
-I you're running Truffle on Linux or MacOS X, you should not install it with sudo, otherwise you might encounter some permission issues. It is recommended to install truffle as a normal user. Before we can install truffle as a normal user we have to cleanup the system. It is also recommended to install nodejs and npm with nvm (node version manager). An advantage of nvm is that you can run different node versions on the same machine.
+# Recommended way to install truffle on a Linux or MacOS System
+If you're running Truffle on Linux or MacOS, you should not install it with sudo, otherwise you might encounter some permission issues. It is recommended to install truffle as a normal user. Before we can install truffle as a normal user we have to cleanup the system. It is also recommended to install nodejs and npm with nvm (node version manager). An advantage of nvm is that you can run different node versions on the same machine.
 
 ## Cleanup node and npm
 ### Remove all packages which have been installed with `sudo npm install -g`
@@ -17,7 +17,7 @@ Get a list of all installed packages:
 
 Now we want to remove them
 
-`$ sudo npm remove -g anache-cli`
+`$ sudo npm remove -g ganache-cli`
 
 `$ sudo npm remove -g truffle`
 
@@ -85,10 +85,13 @@ See: https://stackoverflow.com/questions/34718528/nvm-is-not-compatible-with-the
 
 `$ npm config delete prefix`
 
-`$ npm config set prefix $NVM_DIR/versions/node/v11.10.0`
+`$ npm config set prefix $NVM_DIR/versions/node/v16.10.0`
 
-## Install truffle and other packages as a normal user
+## Install truffle as a normal user
 `$ npm install -g truffle`
+
+## Install ganache-cli and other packages as a normal user
+`$ npm install -g ganache-cli`
 
 ## Check the installation
 `$ whereis truffle`

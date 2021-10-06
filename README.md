@@ -26,6 +26,61 @@ Now we want to remove them
 
 If you have additional packages in the tree, you can also remove them.
 
+## Installation of node and npm with nvm
+### Install & Update Script
+
+To **install** or **update** nvm, you should run the [install script][2]. To do that, you may either download and run the script manually, or use the following cURL or Wget command:
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
+```sh
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
+
+Running either of the above commands downloads a script and runs it. The script clones the nvm repository to `~/.nvm`, and attempts to add the source lines from the snippet below to the correct profile file (`~/.bash_profile`, `~/.zshrc`, `~/.profile`, or `~/.bashrc`).
+
+<a id="profile_snippet"></a>
+```sh
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+
+
+### Install nvm (node version manager)
+See: https://github.com/creationix/nvm
+
+`$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
+
+In order to load the new environment you have to close your console and open a new one
+
+
+### Install node.js with nvm
+`$ nvm install node`
+
+"node" is an alias for the latest version
+
+### Install the latest npm version
+`$ npm install -g npm`
+
+
+### Delete and reset the npm prefix
+See: https://stackoverflow.com/questions/34718528/nvm-is-not-compatible-with-the-npm-config-prefix-option
+
+`$ npm config delete prefix`
+
+`$ npm config set prefix $NVM_DIR/versions/node/v16.10.0`
+
+## Install truffle as a normal user
+`$ npm install -g truffle`
+
+## Install ganache-cli and other packages as a normal user
+`$ npm install -g ganache-cli`
+
+Install the other packages which you had installed as sudo, such as create-react-app.
+
+<hr>
+
+## Linux specific instructions
 
 ### Remove node
 If you installed node with a the package manager of your Linux distro you can delete the package and skip Remove node and Remove npm. If you installed it manually you have to delete it manually.
@@ -64,59 +119,9 @@ Depending on the linux distribution you might have different paths
 
 Now that we have cleaned up everything we can start with the installation of nvm and node
 
-## Installation of node and npm with nvm
-### Install & Update Script
-
-To **install** or **update** nvm, you should run the [install script][2]. To do that, you may either download and run the script manually, or use the following cURL or Wget command:
-```sh
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-```
-```sh
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-```
-
-Running either of the above commands downloads a script and runs it. The script clones the nvm repository to `~/.nvm`, and attempts to add the source lines from the snippet below to the correct profile file (`~/.bash_profile`, `~/.zshrc`, `~/.profile`, or `~/.bashrc`).
-
-<a id="profile_snippet"></a>
-```sh
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-```
-
-
-### Install nvm (node version manager)
-See: https://github.com/creationix/nvm
-
-`$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
-
-In order to load the new environment you have to close your console and open a new one
-
-
-### Install node.js with nvm
-`$ nvm install node # "node" is an alias for the latest version`
-
-### Install the latest npm version
-`$ npm install -g npm`
-
-
-### Delete and reset the npm prefix
-See: https://stackoverflow.com/questions/34718528/nvm-is-not-compatible-with-the-npm-config-prefix-option
-
-`$ npm config delete prefix`
-
-`$ npm config set prefix $NVM_DIR/versions/node/v16.10.0`
-
-## Install truffle as a normal user
-`$ npm install -g truffle`
-
-## Install ganache-cli and other packages as a normal user
-`$ npm install -g ganache-cli`
-
 ## Check the installation
 `$ whereis truffle`
 
 If everything went as expected truffle should be installed in:
 
 `~/.nvm/versions/node/v11.10.0/bin/truffle`
-
-Install the other packages which you had installed as sudo, such as ganache-cli or create-react-app.

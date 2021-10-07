@@ -1,5 +1,7 @@
 # Recommended way to install truffle on a Linux or MacOS System
-If you're running Truffle on Linux or MacOS, you should not install it with sudo, otherwise you might encounter some permission issues. It is recommended to install truffle as a normal user. Before we can install truffle as a normal user we have to cleanup the system. It is also recommended to install nodejs and npm with nvm (node version manager). An advantage of nvm is that you can run different node versions on the same machine.
+It is recommended to install truffle as a normal user. If you're running Truffle on Linux or MacOS, you should not install it with sudo, otherwise you might encounter some permissions issues.
+
+Before we can install truffle as a normal user we have to cleanup the system. It is also recommended to install nodejs and npm with nvm (node version manager). An advantage of nvm is that you can run different node versions on the same machine.
 
 ## Cleanup node and npm
 ### Remove all packages which have been installed with `sudo npm install -g`
@@ -45,12 +47,6 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
-
-### Install nvm (node version manager)
-See: https://github.com/creationix/nvm
-
-`$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash`
-
 In order to load the new environment you have to close your console and open a new one
 
 
@@ -77,6 +73,10 @@ See: https://stackoverflow.com/questions/34718528/nvm-is-not-compatible-with-the
 `$ npm install -g ganache-cli`
 
 Install the other packages which you had installed as sudo, such as create-react-app.
+
+<hr>
+
+#### The following section has not been updated from the original source and has just been moved to the bottom of this document as it only relates to Linux.
 
 <hr>
 
